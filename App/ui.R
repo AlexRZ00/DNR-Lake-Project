@@ -118,7 +118,7 @@ ui <- navbarPage(
 
                             plotOutput(
                                 outputId = "plot",
-                                height = "600px"
+                                height = "600px" 
                             )
                         ) # End conditionalPanel for plot
                     ) # End tabsetPanel()
