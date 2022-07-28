@@ -1,0 +1,46 @@
+﻿Zone,Default_Name,Code_Name,Formatted_Name
+rbz,PARCELID,parcel_id,Parcel ID
+rbz,CANOPY_PCT,canopy_cover,Canopy % Cover
+rbz,SHRUB_PRESENCE,shrub_presence,Shrub Presence
+rbz,HERB_PRESENCE,herbaceous_presence,Herbaceous Presence
+rbz,SHRUB_HERB_PCT,shrub_herb_coverage,Shrub & Herb Coverage
+rbz,IMPERVIOUS_PCT,impervious_cover,Impervious % Cover
+rbz,MANI_LAWN_PCT,manicured_lawn_cover,Manicured Lawn % Cover
+rbz,AG_PCT,agriculture_cover,Agriculture % Cover
+rbz,OTHER_PCT,other_cover,Other % Cover
+rbz,BUILDINGS_CNT,count_of_buildings,Count of Buildings
+rbz,BOAT_SHORE_CNT,boat_shore_cnt,BOAT_SHORE_CNT
+rbz,FIRE_PIT_CNT,fire_pit_cnt,FIRE_PIT_CNT
+rbz,OTHER_STRUCTURE_CNT,other_structure_cnt,OTHER_STRUCTURE_CNT
+rbz,POINT_SOURCE_PRES,point_source_pres,POINT_SOURCE_PRES
+rbz,CHANNEL_FLOW_PRES,channel_flow_pres,CHANNEL_FLOW_PRES
+rbz,STAIR_LAKE_PRES,stair_lake_pres,STAIR_LAKE_PRES
+rbz,LAWN_LAKE_PRES,lawn_lake_pres,LAWN_LAKE_PRES
+rbz,SAND_DEP_PRES,sand_dep_pres,SAND_DEP_PRES
+rbz,OTHER_RUNOFF_PRES,other_runoff_pres,OTHER_RUNOFF_PRES
+bz,VERTICAL_WALL_LEN,vertical_wall_len,VERTICAL_WALL_LEN
+bz,RIPRAP_LEN,riprap_len,RIPRAP_LEN
+bz,EROSION_CNTRL_LEN,erosion_cntrl_len,EROSION_CNTRL_LEN
+bz,ART_BEACH_LEN,art_beach_len,ART_BEACH_LEN
+bz,GREAT_ERO_LEN,great_ero_len,GREAT_ERO_LEN
+bz,LESS_ERO_LEN,less_ero_len,LESS_ERO_LEN
+lz,PIERS_CNT,piers_cnt,PIERS_CNT
+lz,BOAT_LIFT_CNT,boat_lift_cnt,BOAT_LIFT_CNT
+lz,SWIM_RAFT_CNT,swim_raft_cnt,SWIM_RAFT_CNT
+lz,BOATHOUSE_CNT,boathouse_cnt,BOATHOUSE_CNT
+lz,MARINAS_CNT,marinas_cnt,MARINAS_CNT
+lz,STRUCTURE_OTHER_CNT,structure_other_cnt,STRUCTURE_OTHER_CNT
+lz,EMERGENT_VEG_PRES,emergent_veg_pres,EMERGENT_VEG_PRES
+lz,FLOATING_VEG_PRES,floating_veg_pres,FLOATING_VEG_PRES
+lz,PLANT_REMOVAL_PRES,plant_removal_pres,PLANT_REMOVAL_PRES
+lz,FLOAT_EMERG_PRES,float_emerg_pres,FLOAT_EMERG_PRES
+lz,EXPOSED_CANOPY_PRES,exposed_canopy_pres,EXPOSED_CANOPY_PRES
+lz,EXPOSED_SHRUB_PRES,exposed_shrub_pres,EXPOSED_SHRUB_PRES
+lz,EXPOSED_HERB_PRES,exposed_herb_pres,EXPOSED_HERB_PRES
+lz,EXPOSED_MOW_PRES,exposed_mow_pres,EXPOSED_MOW_PRES
+lz,EXPOSED_TILL_PRES,exposed_till_pres,EXPOSED_TILL_PRES
+,NOTES,notes,NOTES
+,PLACENAME,town,Town
+,COUNTY,county,County
+,LAKE_NAME,lake_name,Lake Name
+,WBIC,wbic,WBIC

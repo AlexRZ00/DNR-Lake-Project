@@ -1,0 +1,111 @@
+# Define UI for application that draws a histogram
+ui <- navbarPage(
+  "Lake Data Visualization",
+  collapsible = TRUE,
+  inverse = TRUE, 
+  theme = shinytheme("spacelab"),
+  
+  tabPanel(
+    "Guide"
+  ), # End tabPanel() for Guide
+  
+  tabPanel(
+    "Overall Lake Papoose statistics"
+  ), # End tabPanel() for Overall Lake Papoose statistics
+  
+  tabPanel(
+    "Individual Lake Parcel Statistics",
+    fluidPage(
+      
+      sidebarLayout(
+        fluid = TRUE,
+        
+        sidebarPanel = sidebarPanel(
+          # Total width must be 12 or less
+          width = 4,
+          
+          selectInput(
+            inputId = "lake_name",
+            label = "Choose your lake",
+            choices = c(unique(alllakes_data$LAKE_NAME),""),
+            selected = ""
+          ),
+          
+          conditionalPanel(
+            condition = "input.lake_name !== ''",
+            
+            selectInput(
+              inputId = "parcel_id",
+              label = "Choose Parcel ID",
+              choices = ""
+            )
+          ) # End conditionalPanel()
+        ), # End sidebarPanel()
+        
+        mainPanel = mainPanel(
+          # Width must be 12 - sidebarPanel() width
+          width = 8,
+          
+          tabsetPanel(
+            tabPanel(
+              "Riparian Buffer Zone",
+              
+              br(),
+              
+              selectInput(
+                inputId = "measurement_rbz",
+                label = "Choose a Measurement",
+                choices = zone_measurements$rbz
+              ),
+              
+              br()#,
+              
+              #plotOutput(
+              #  outputId = "plot_rbz",
+              #  height = "600px"
+              #)
+            ), # End tabPanel() for Riparian Buffer Zone
+            
+            tabPanel(
+              "Bank Zone",
+              
+              br(),
+              
+              selectInput(
+                inputId = "measurement_bz",
+                label = "Choose a Measurement",
+                choices = zone_measurements$bz
+              ),
+              
+              br()#,
+              
+              #plotOutput(
+              #  outputId = "plot_rbz",
+              #  height = "600px"
+              #)
+            ), # End tabPanel() for Riparian Buffer Zone
+            
+            tabPanel(
+              "Littoral Zone",
+              
+              br(),
+              
+              selectInput(
+                inputId = "measurement_lz",
+                label = "Choose a Measurement",
+                choices = zone_measurements$lz
+              ),
+              
+              br()#,
+              
+              #plotOutput(
+              #  outputId = "plot_rbz",
+              #  height = "600px"
+              #)
+            ) # End tabPanel() for Riparian Buffer Zone
+          ) # End tabsetPanel()
+        ) # End mainPanel()
+      ) # End sidebarLayout()
+    ) # End fluidpage()
+  ) # End tabPanel() for Individual Lake Parcel Statistics
+) # End navbarPage()

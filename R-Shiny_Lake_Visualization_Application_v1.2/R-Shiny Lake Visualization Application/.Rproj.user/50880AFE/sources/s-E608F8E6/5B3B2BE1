@@ -1,0 +1,26 @@
+{
+    "id": "5B3B2BE1",
+    "path": "C:/Users/zogon/Desktop/UW EOI Materials/Summer 2022/EOI 950/DNR Limnology Project/R-Shiny Lake Visualization Application/App/global.R",
+    "project_path": "App/global.R",
+    "type": "r_source",
+    "hash": "268146090",
+    "contents": "",
+    "dirty": false,
+    "created": 1658627999563.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "22,3",
+        "scrollLine": "3"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1658630329,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1658630329481,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,27 @@
+{
+    "id": "67B1733B",
+    "path": "F:/R Code Repository/R-Shiny_Lake_Visualization_Application_v1.2/R-Shiny Lake Visualization Application/App/launch.R",
+    "project_path": "App/launch.R",
+    "type": "r_source",
+    "hash": "3480276403",
+    "contents": "",
+    "dirty": false,
+    "created": 1658899827488.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "17,2",
+        "scrollLine": "0",
+        "disableDependencyDiscovery": "1"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1658883265,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1658883265,
+    "read_only": false,
+    "read_only_alternatives": []
+}
