@@ -55,12 +55,7 @@ ui <- navbarPage(
 
                         tabPanel(
                             "Littoral Zone"
-                        )#, # End tabPanel() for Littoral Zone
-
-                        #footer = plotOutput(
-                        #    outputId = "plot_rbz",
-                        #    height = "600px"
-                        #) # End plotOutput()
+                        )# End tabPanel() for Littoral Zone
                     ) # End tabsetPanel()
                 ) # End mainPanel()
             ) # End sidebarLayout()
