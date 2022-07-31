@@ -6,12 +6,12 @@ server <- function(input, output, session){
         measurement_rbz = NULL,
         measurement_bz = NULL,
         measurement_lz = NULL,
-        name_mapping = name_mapping
+        column_definitions = column_definitions
     )
 
     #Altering Data set (Renaming and Decoding)
     observe({
-        values$dt <- setnames(values$dt, name_mapping$Default_Name, name_mapping$Code_Name)
+        values$dt <- setnames(values$dt, column_definitions$Default_Name, column_definitions$Code_Name)
         values$dt <- data_decode(values$dt) #does not do anything, update function
     })
 
@@ -27,9 +27,9 @@ server <- function(input, output, session){
     observe({
         switch(
             input$tabs_overall,
-            "Riparian Buffer Zone" = {tab_num <- 1},
-            "Bank Zone" = {tab_num <- 2},
-            "Littoral Zone" = {tab_num <- 3}
+            "Riparian Buffer Zone" = {tab_num <- "rbz"},
+            "Bank Zone" = {tab_num <- "bz"},
+            "Littoral Zone" = {tab_num <- "lz"}
         )
 
         updateSelectInput(
@@ -45,16 +45,28 @@ server <- function(input, output, session){
     
     #Input Plot Function
     output$plot <- renderPlot({ 
-      column <- name_mapping[Formatted_Name == input$measurement,.(Code_Name)]$Code_Name
-      #Use ggplot2::luv_colors to view color options
-      ggplot(filterdata(), aes_string(x = column)) +
-        geom_histogram(aes(y=..count..), colour="black", fill="cyan4")+
-        geom_density(alpha=.2, fill="#FF6666") +
-        geom_label()
+      xvar <- column_definitions[Formatted_Name == input$measurement,.(Code_Name)]$Code_Name
+      var_type <- column_definitions[Formatted_Name == input$measurement, .(var_type)]
+      
+      #passing column_definitions, input$measurement, and filterdata() into the create_plot function (in functions file)
+      create_plot(
+        data = filterdata(),
+        xvar = xvar,
+        measurement = input$measurement,
+        var_type = var_type
+      )
+      
+      
+      ##Use ggplot2::luv_colors to view color options
+      #ggplot(filterdata(), aes_string(x = column)) +
+      #  geom_histogram(aes(y=..count..), colour="black", fill="cyan4")+
+      #  geom_density(alpha=.2, fill="#FF6666") +
+      #  xlab(label = input$measurement) +
+      #  ylab(label = 'Property Count')
     })
 
 
-
+#..density..*(nrow(filterdata())) return to idea 
 
 
     # Kill the app when the window gets closed
