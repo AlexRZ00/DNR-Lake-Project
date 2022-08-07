@@ -56,21 +56,35 @@ create_plot <- function(data, xvar, measurement,var_type){
   lakes <- factor(data$lake_name)
   color_palette <- "Greens"
   if (var_type == "continuous"){
+    #calculate mean measurement
+    median_calc <- median(data[,.SD,.SDcols = xvar][[1]], na.rm = TRUE)
+    
     ggplot(data = data, aes_string(x = xvar)) +
       geom_histogram(
         stat = "count", 
         colour = "black", 
         position = "dodge",
-        fill = brewer.pal(7, color_palette)[7]
+        fill = brewer.pal(7, color_palette)[5]
       ) +
       xlab(label = measurement) +
-      ylab(label = 'Property Count') 
-      #theme_dark()+
-      #theme(
-      #  axis.title.x = element_text(measurement),
-      #  axis.title.y = element_text('Property Count'),
-      #  axis.text = element_text(size = 12)
-      #)
+      ylab(label = 'Property Count') +
+      theme_light()+
+      geom_vline(
+        xintercept = median_calc, 
+        linetype = "twodash", 
+        color = brewer.pal(7, color_palette)[7]
+      ) +
+      geom_text(
+        mapping = aes(
+          x = median_calc,
+          y = 0,
+          label = paste0("Median: ", median_calc),
+          hjust = -0.2,
+          vjust = -50
+        )
+      )
+    
+    
   }else if (var_type == "presence"){
       #average line to calculate input measurement
     ggplot(data = data, aes_string(x = xvar, fill = lakes)) +
@@ -81,9 +95,7 @@ create_plot <- function(data, xvar, measurement,var_type){
       guides(
         fill = guide_legend(title = 'Selected Lakes')
       ) +
-      theme_grey()
-    
-      #geom vline
+      theme_light()
   }
   #Use ggplot2::luv_colors to view color options
   
