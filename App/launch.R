@@ -5,6 +5,7 @@ suppressWarnings(library(shinythemes))
 suppressWarnings(library(data.table))
 suppressWarnings(library(ggplot2))
 suppressWarnings(library(stringr))
+suppressWarnings(library(RColorBrewer))
 
 #suppressWarnings(library(plotly))
 #suppressWarnings(library(leaflet))

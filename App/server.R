@@ -11,15 +11,20 @@ server <- function(input, output, session){
 
     #Altering Data set (Renaming and Decoding)
     observe({
-        values$dt <- setnames(values$dt, column_definitions$Default_Name, column_definitions$Code_Name)
-        values$dt <- data_decode(values$dt) #does not do anything, update function
+      values$dt <- setnames(
+        x = values$dt, 
+        old = column_definitions$Default_Name, 
+        new = column_definitions$Code_Name,
+        skip_absent = TRUE
+      )
+      values$dt <- data_decode(values$dt, column_definitions)
     })
 
     # Filter parcel IDs based on which lake is selected
     observe({
         updateSelectInput(
             inputId = "parcel_id",
-            choices = unique(values$dt[lake_name == input$lake_name, .(parcel_id)])
+            choices = unique(values$dt[lake_name %in% input$lake_name, .(parcel_id)])
         )
     })
 
@@ -29,7 +34,8 @@ server <- function(input, output, session){
             input$tabs_overall,
             "Riparian Buffer Zone" = {tab_num <- "rbz"},
             "Bank Zone" = {tab_num <- "bz"},
-            "Littoral Zone" = {tab_num <- "lz"}
+            "Littoral Zone" = {tab_num <- "lz"},
+            tab_num <- "rbz"
         )
 
         updateSelectInput(
@@ -40,7 +46,7 @@ server <- function(input, output, session){
     })
     
     filterdata <- reactive({
-      values$dt[lake_name== input$lake_name_overall] 
+      values$dt[lake_name %in% input$lake_name_overall] 
     })
     
     #Input Plot Function

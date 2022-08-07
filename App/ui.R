@@ -3,7 +3,7 @@ ui <- navbarPage(
     "Lake Data Visualization",
     collapsible = TRUE,
     inverse = TRUE,
-    theme = shinytheme("spacelab"),
+    theme = shinytheme("cosmo"),
 
     tabPanel(
         "Guide",
@@ -11,56 +11,57 @@ ui <- navbarPage(
 
     ), # End tabPanel() for Guide
 
-    tabPanel(
-        "Individual Lake Parcel Statistics",
-        fluidPage(
-
-            sidebarLayout(
-                fluid = TRUE,
-
-                sidebarPanel = sidebarPanel(
-                    # Total width must be 12 or less
-                    width = 4,
-
-                    selectInput(
-                        inputId = "lake_name",
-                        label = "Choose your lake",
-                        choices = c(unique(alllakes_data$LAKE_NAME),""),
-                        selected = ""
-                    ),
-
-                    conditionalPanel(
-                        condition = "input.lake_name !== ''",
-
-                        selectInput(
-                            inputId = "parcel_id",
-                            label = "Choose Parcel ID",
-                            choices = ""
-                        )
-                    ) # End conditionalPanel()
-                ), # End sidebarPanel()
-
-                mainPanel = mainPanel(
-                    # Width must be 12 - sidebarPanel() width
-                    width = 8,
-
-                    tabsetPanel(
-                        tabPanel(
-                            "Riparian Buffer Zone"
-                        ), # End tabPanel() for Riparian Buffer Zone
-
-                        tabPanel(
-                            "Bank Zone"
-                        ), # End tabPanel() for Bank Zone
-
-                        tabPanel(
-                            "Littoral Zone"
-                        )# End tabPanel() for Littoral Zone
-                    ) # End tabsetPanel()
-                ) # End mainPanel()
-            ) # End sidebarLayout()
-        ) # End fluidpage()
-    ), # End tabPanel() for Individual Lake Parcel Statistics
+    #tabPanel(
+    #    "Individual Lake Parcel Statistics",
+    #    fluidPage(
+#
+    #        sidebarLayout(
+    #            fluid = TRUE,
+#
+    #            sidebarPanel = sidebarPanel(
+    #                # Total width must be 12 or less
+    #                width = 4,
+#
+    #                selectInput(
+    #                    inputId = "lake_name",
+    #                    label = "Choose your lake",
+    #                    choices = c(unique(alllakes_data$LAKE_NAME),""),
+    #                    selected = "",
+    #                    multiple = TRUE
+    #                ),
+#
+    #                conditionalPanel(
+    #                    condition = "input.lake_name !== ''",
+#
+    #                    selectInput(
+    #                        inputId = "parcel_id",
+    #                        label = "Choose Parcel ID",
+    #                        choices = ""
+    #                    )
+    #                ) # End conditionalPanel()
+    #            ), # End sidebarPanel()
+#
+    #            mainPanel = mainPanel(
+    #                # Width must be 12 - sidebarPanel() width
+    #                width = 8,
+#
+    #                tabsetPanel(
+    #                    tabPanel(
+    #                        "Riparian Buffer Zone"
+    #                    ), # End tabPanel() for Riparian Buffer Zone
+#
+    #                    tabPanel(
+    #                        "Bank Zone"
+    #                    ), # End tabPanel() for Bank Zone
+#
+    #                    tabPanel(
+    #                        "Littoral Zone"
+    #                    )# End tabPanel() for Littoral Zone
+    #                ) # End tabsetPanel()
+    #            ) # End mainPanel()
+    #        ) # End sidebarLayout()
+    #    ) # End fluidpage()
+    #), # End tabPanel() for Individual Lake Parcel Statistics
 
     tabPanel(
         "Overall Lake Statistics",
@@ -77,7 +78,8 @@ ui <- navbarPage(
                         inputId = "lake_name_overall",
                         label = "Choose your lake",
                         choices = c(unique(alllakes_data$LAKE_NAME),""),
-                        selected = ''
+                        selected = '',
+                        multiple = TRUE
                     ),
 
                     selectInput(
