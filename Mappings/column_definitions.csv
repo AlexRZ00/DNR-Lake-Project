@@ -1,0 +1,46 @@
+﻿Zone,Default_Name,Code_Name,Formatted_Name,var_type
+,PARCELID,parcel_id,Parcel ID,
+rbz,CANOPY_PCT,canopy_cover,Canopy % Cover,continuous
+rbz,SHRUB_PRESENCE,shrub_presence,Shrub Presence,presence
+rbz,HERB_PRESENCE,herbaceous_presence,Herbaceous Presence,presence
+rbz,SHRUB_HERB_PCT,shrub_herb_coverage,Shrub & Herb Coverage,continuous
+rbz,IMPERVIOUS_PCT,impervious_cover,Impervious % Cover,continuous
+rbz,MANI_LAWN_PCT,manicured_lawn_cover,Manicured Lawn % Cover,continuous
+rbz,AG_PCT,agriculture_cover,Agriculture % Cover,continuous
+rbz,OTHER_PCT,other_cover,Other % Cover,continuous
+rbz,BUILDINGS_CNT,count_of_buildings,Count of Buildings,continuous
+rbz,BOAT_SHORE_CNT,boat_shore_cnt,Boats on Shore,continuous
+rbz,FIRE_PIT_CNT,fire_pit_cnt,Count of Firepits,continuous
+rbz,OTHER_STRUCTURE_CNT,other_structure_cnt,Other Structures,continuous
+rbz,POINT_SOURCE_PRES,point_source_pres,Point Source Presence,presence
+rbz,CHANNEL_FLOW_PRES,channel_flow_pres,Channel Flow Presence,presence
+rbz,STAIR_LAKE_PRES,stair_lake_pres,Presence of Stairs to Lake,presence
+rbz,LAWN_LAKE_PRES,lawn_lake_pres,Presence of Lawn/Slope to Lake,presence
+rbz,SAND_DEP_PRES,sand_dep_pres,Presence of Sand/Silt Deposits,presence
+rbz,OTHER_RUNOFF_PRES,other_runoff_pres,Presence of Other Erosion,presence
+bz,VERTICAL_WALL_LEN,vertical_wall_len,Vertical Wall Length,continuous
+bz,RIPRAP_LEN,riprap_len,Riprap Length,continuous
+bz,EROSION_CNTRL_LEN,erosion_cntrl_len,Erosion Control Length,continuous
+bz,ART_BEACH_LEN,art_beach_len,Artifical Beach Length,continuous
+bz,GREAT_ERO_LEN,great_ero_len,Length of Bank Erosion >1ft,continuous
+bz,LESS_ERO_LEN,less_ero_len,Length of Bank Erosion <1ft,continuous
+lz,PIERS_CNT,piers_cnt,Count of Piers,continuous
+lz,BOAT_LIFT_CNT,boat_lift_cnt,Count of Boat Lifts,continuous
+lz,SWIM_RAFT_CNT,swim_raft_cnt,Swim Raft Count,continuous
+lz,BOATHOUSE_CNT,boathouse_cnt,Count of Boathouses,continuous
+lz,MARINAS_CNT,marinas_cnt,Count of Marinas,continuous
+lz,STRUCTURE_OTHER_CNT,structure_other_cnt,Count of Other Structures,continuous
+lz,EMERGENT_VEG_PRES,emergent_veg_pres,Emergent Aquatic Plants Presence,presence
+lz,FLOATING_VEG_PRES,floating_veg_pres,Floating Aquatic Plants Presence,presence
+lz,PLANT_REMOVAL_PRES,plant_removal_pres,Plant Removal Presence,presence
+lz,FLOAT_EMERG_PRES,float_emerg_pres,Floating Emergence Presence,presence
+lz,EXPOSED_CANOPY_PRES,exposed_canopy_pres,Exposed Canopy Presence,presence
+lz,EXPOSED_SHRUB_PRES,exposed_shrub_pres,Exposed Shrub Presence,presence
+lz,EXPOSED_HERB_PRES,exposed_herb_pres,Exposed Herbaceous Presence,presence
+lz,EXPOSED_MOW_PRES,exposed_mow_pres,Mowed/Removed Plants Presence,presence
+lz,EXPOSED_TILL_PRES,exposed_till_pres,Tilled/Dug Sediment Presence,presence
+,NOTES,notes,Notes,
+,PLACENAME,town,Town,
+,COUNTY,county,County,
+,LAKE_NAME,lake_name,Lake Name,
+,WBIC,wbic,WBIC,

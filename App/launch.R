@@ -5,6 +5,7 @@ suppressWarnings(library(shinythemes))
 suppressWarnings(library(data.table))
 suppressWarnings(library(ggplot2))
 suppressWarnings(library(stringr))
+suppressWarnings(library(RColorBrewer))
 
 #suppressWarnings(library(plotly))
 #suppressWarnings(library(leaflet))
@@ -20,3 +21,5 @@ runApp(
   appDir = file.path(app_dir)
 ) 
 
+#Final Changes to consider: change names to lowercase and underscore for spaces 
+#(and in mappings file)

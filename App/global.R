@@ -9,11 +9,11 @@ lapply(X = function_scripts, FUN = source)
 
 # Load in data
 alllakes_data <- fread(file.path(data_dir,"950_hab.csv"))
-name_mapping <- fread(file.path(mappings_dir, "NameMapping.csv"))
+column_definitions <- fread(file.path(mappings_dir, "column_definitions.csv"))
 
 #Define Variables for each Zone
 zone_measurements <- list(
-  "rbz" = name_mapping[Zone == "rbz",.(Formatted_Name)],
-  "bz" = name_mapping[Zone == "bz",.(Formatted_Name)],
-  "lz" = name_mapping[Zone == "lz",.(Formatted_Name)]
+  "rbz" = column_definitions[Zone == "rbz",.(Formatted_Name)],
+  "bz" = column_definitions[Zone == "bz",.(Formatted_Name)],
+  "lz" = column_definitions[Zone == "lz",.(Formatted_Name)]
 )

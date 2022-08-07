@@ -6,20 +6,25 @@ server <- function(input, output, session){
         measurement_rbz = NULL,
         measurement_bz = NULL,
         measurement_lz = NULL,
-        name_mapping = name_mapping
+        column_definitions = column_definitions
     )
 
     #Altering Data set (Renaming and Decoding)
     observe({
-        values$dt <- setnames(values$dt, name_mapping$Default_Name, name_mapping$Code_Name)
-        values$dt <- data_decode(values$dt) #does not do anything, update function
+      values$dt <- setnames(
+        x = values$dt, 
+        old = column_definitions$Default_Name, 
+        new = column_definitions$Code_Name,
+        skip_absent = TRUE
+      )
+      values$dt <- data_decode(values$dt, column_definitions)
     })
 
     # Filter parcel IDs based on which lake is selected
     observe({
         updateSelectInput(
             inputId = "parcel_id",
-            choices = unique(values$dt[lake_name == input$lake_name, .(parcel_id)])
+            choices = unique(values$dt[lake_name %in% input$lake_name, .(parcel_id)])
         )
     })
 
@@ -27,9 +32,10 @@ server <- function(input, output, session){
     observe({
         switch(
             input$tabs_overall,
-            "Riparian Buffer Zone" = {tab_num <- 1},
-            "Bank Zone" = {tab_num <- 2},
-            "Littoral Zone" = {tab_num <- 3}
+            "Riparian Buffer Zone" = {tab_num <- "rbz"},
+            "Bank Zone" = {tab_num <- "bz"},
+            "Littoral Zone" = {tab_num <- "lz"},
+            tab_num <- "rbz"
         )
 
         updateSelectInput(
@@ -40,21 +46,33 @@ server <- function(input, output, session){
     })
     
     filterdata <- reactive({
-      values$dt[lake_name== input$lake_name_overall] 
+      values$dt[lake_name %in% input$lake_name_overall] 
     })
     
     #Input Plot Function
     output$plot <- renderPlot({ 
-      column <- name_mapping[Formatted_Name == input$measurement,.(Code_Name)]$Code_Name
-      #Use ggplot2::luv_colors to view color options
-      ggplot(filterdata(), aes_string(x = column)) +
-        geom_histogram(aes(y=..count..), colour="black", fill="cyan4")+
-        geom_density(alpha=.2, fill="#FF6666") +
-        geom_label()
+      xvar <- column_definitions[Formatted_Name == input$measurement,.(Code_Name)]$Code_Name
+      var_type <- column_definitions[Formatted_Name == input$measurement, .(var_type)]
+      
+      #passing column_definitions, input$measurement, and filterdata() into the create_plot function (in functions file)
+      create_plot(
+        data = filterdata(),
+        xvar = xvar,
+        measurement = input$measurement,
+        var_type = var_type
+      )
+      
+      
+      ##Use ggplot2::luv_colors to view color options
+      #ggplot(filterdata(), aes_string(x = column)) +
+      #  geom_histogram(aes(y=..count..), colour="black", fill="cyan4")+
+      #  geom_density(alpha=.2, fill="#FF6666") +
+      #  xlab(label = input$measurement) +
+      #  ylab(label = 'Property Count')
     })
 
 
-
+#..density..*(nrow(filterdata())) return to idea 
 
 
     # Kill the app when the window gets closed
